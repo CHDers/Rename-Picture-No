@@ -12,6 +12,8 @@ def rename_fig(input_folder_path: Path, rename_id: int) -> None:
     """
     # 获取文件夹中所有文件的列表
     file_list = os.listdir(input_folder_path)
+    file_list = list(filter(lambda x: "." in x, file_list))
+    file_list  = soretd(file_list, key=lambda x: int(x.split(".")[0]))
 
     # 遍历文件列表
     for file_name in file_list:
